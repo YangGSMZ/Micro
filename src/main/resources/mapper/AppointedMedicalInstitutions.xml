@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.micro.hospital.dao.AppointedMedicalInstitutionsDao" >
+
+    <select id="findAllByAppointedMedicalInstitutionProvince" parameterType ="java.lang.String" resultType="com.micro.hospital.bean.AppointedMedicalInstitutionsBean">
+          SELECT * From appointedmedicalinstitutions WHERE AppointedMedicalInstitutionProvince = #{province}
+    </select>
+    <select id="findAllByAreaName" parameterType ="java.lang.String" resultType="com.micro.hospital.bean.AppointedMedicalInstitutionsBean">
+          SELECT * From appointedmedicalinstitutions WHERE AreaName = #{city}
+    </select>
+    <select id="findAllByAppointedMedicalInstitutionName" parameterType ="java.lang.String" resultType="com.micro.hospital.bean.AppointedMedicalInstitutionsBean">
+          SELECT * From appointedmedicalinstitutions WHERE AppointedMedicalInstitutionName = #{hospital}
+    </select>
+    <select id="findAll" parameterType ="java.lang.String" resultType="com.micro.hospital.bean.AppointedMedicalInstitutionsBean">
+          SELECT * From appointedmedicalinstitutions WHERE AppointedMedicalInstitutionName = #{hospital} AND AppointedMedicalInstitutionProvince = #{province} AND AreaName = #{city}
+    </select>
+    <select id="orderByLevel" parameterType ="java.lang.String" resultType="com.micro.hospital.bean.AppointedMedicalInstitutionsBean">
+          SELECT * From appointedmedicalinstitutions order by AppointedMedicalInstitutionLevel = #{level}
+    </select>
+</mapper>
